@@ -1,0 +1,334 @@
+/*------------------------------------------------------
+	1. STYLES DE BASE (Reset & Typographie)
+--------------------------------------------------------*/
+body {
+    background: white;
+    font-size: 16px;
+    font-family: "PT Serif", Georgia, serif;
+    color: #777777;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    color: #31373a;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+}
+
+a { color: #f17e39; text-decoration: none !important; transition: 0.3s; }
+a:hover { color: #31373a; }
+
+/*------------------------------------------------------
+	2. EN-TÊTE (Menu fixe)
+--------------------------------------------------------*/
+.site-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: white;
+    box-shadow: 0 0 3px rgba(0,0,0,0.2);
+    z-index: 9999;
+    padding: 25px 0;
+}
+
+
+
+/*------------------------------------------------------
+	3. BANNIÈRE ARRIÈRE-PLAN (VERSION AFFINÉE / PETITE)
+--------------------------------------------------------*/
+.first-widget {
+    position: relative;
+    margin-top: 80px; /* Réduit de 100px à 80px pour remonter le bloc */
+    margin-bottom: 80px;
+}
+
+/* Ton image de fond avec les lunettes */
+#portfolioId {
+    background-image: url("../images/includes/portfolioId.jpg"); 
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    overflow: hidden;
+}
+
+.parallax-overlay {
+    background-color: rgba(0, 0, 0, 0.65); 
+    padding: 70px 0; 
+}
+
+.page-title {
+    color: white;
+    font-size: 24px; /* Réduit de 30px à 24px pour un look plus fin */
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.page-location {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: inline-block;
+    font-size: 13px; /* Légèrement plus petit */
+    padding: 5px 12px; /* Padding plus fin */
+    border-radius: 3px;
+    color: #fff;
+}
+
+.text-right { text-align: right; }
+
+/*------------------------------------------------------
+	4. LOGIQUE DES 6 PROJETS (Cachés par défaut)
+--------------------------------------------------------*/
+.projet-cache {
+    display: none; /* Le JavaScript affichera le bon ID */
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.project-title {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 25px;
+}
+
+.meta-post { list-style: none; padding: 0; }
+.meta-post li { margin-bottom: 10px; font-size: 14px; }
+.meta-post li span { font-weight: bold; color: #31373a; margin-right: 10px; }
+
+/*------------------------------------------------------
+	5. FLEXSLIDER (Le Slide images)
+--------------------------------------------------------*/
+.flexslider { margin: 0; padding: 0; position: relative; zoom: 1; overflow: hidden; }
+.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; }
+.flexslider .slides img { width: 100%; display: block; border-radius: 3px; }
+.slides, .flex-control-nav, .flex-direction-nav { list-style: none; margin: 0; padding: 0; }
+
+/* Flèches de navigation du slide */
+.flex-direction-nav a { 
+    display: block; width: 40px; height: 40px; 
+    background-color: #31373a; color: white;
+    position: absolute; top: 50%; z-index: 10; 
+    text-align: center; line-height: 40px; 
+}
+.flex-direction-nav .flex-prev { left: 0; }
+.flex-direction-nav .flex-next { right: 0; }
+.flex-direction-nav a:before { font-family: "FontAwesome"; content: '\f104'; font-size: 20px; }
+.flex-direction-nav a.flex-next:before { content: '\f105'; }
+
+/*------------------------------------------------------
+	6. FANCYBOX (Pop-up images Related Projects)
+--------------------------------------------------------*/
+/*------------------------------------------------------
+	FANCYBOX - STYLE ORIGINAL (Fenêtre centrée + Croix)
+--------------------------------------------------------*/
+.fancybox-wrap {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: 99999;
+}
+
+.fancybox-skin {
+    position: relative;
+    background: #fff; /* Le cadre blanc autour de l'image */
+    color: #444;
+    padding: 0 !important;
+    border-radius: 3px;
+}
+
+.fancybox-opened { z-index: 99999; }
+
+.fancybox-outer, .fancybox-inner { position: relative; }
+
+.fancybox-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/* LE FOND NOIR DERRIÈRE */
+.fancybox-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    overflow: hidden;
+    display: none;
+    z-index: 99998;
+    background: rgba(0, 0, 0, 0.9); /* Noir très sombre */
+}
+
+.fancybox-overlay-fixed {
+    position: fixed;
+    bottom: 0; right: 0;
+}
+
+/* LE BOUTON FERMER (LA CROIX) */
+.fancybox-close {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    z-index: 99999;
+    background-image: url("../images/fancybox_sprite.png"); /* Vérifie bien ce chemin */
+}
+
+/* LE TITRE EN BAS DE L'IMAGE */
+.fancybox-title {
+    visibility: hidden;
+    position: relative;
+    text-shadow: none;
+    z-index: 99999;
+    text-align: center;
+}
+
+.fancybox-opened .fancybox-title { visibility: visible; }
+
+.fancybox-title-float-wrap {
+    position: absolute;
+    bottom: -35px;
+    right: 50%;
+    margin-right: -100px;
+    text-align: center;
+}
+
+.fancybox-title-float-wrap .child {
+    background: rgba(0, 0, 0, 0.8);
+    color: #FFF;
+    font-weight: bold;
+    padding: 2px 20px;
+    border-radius: 15px;
+}
+
+/*------------------------------------------------------
+	7. RELATED PROJECTS (Section du bas)
+--------------------------------------------------------*/
+.related-projects { padding: 80px 0; border-top: 1px solid #eee; }
+.section-header { text-align: center; margin-bottom: 50px; }
+.portfolio-post { margin-bottom: 30px; }
+.thumb-post { position: relative; display: block; overflow: hidden; }
+.thumb-post img { width: 100%; transition: 0.5s; }
+.thumb-post:hover img { transform: scale(1.1); }
+
+/*------------------------------------------------------
+	8. MOBILE RESPONSIVE
+--------------------------------------------------------*/
+@media (max-width: 767px) {
+    .site-header { position: relative; }
+    .first-widget { margin-top: 0; }
+    
+    /* 1. On dit au conteneur principal de tout centrer */
+    .pageTitle {
+        text-align: center !important;
+    }
+
+    /* 2. On centre le titre principal et on lui donne de l'espace */
+    .page-title {
+        text-align: center !important;
+        margin: 0 0 15px 0 !important;
+        float: none !important; /* Annule le flottement si présent */
+    }
+
+    /* 3. On force le bloc "Home / Project" à se centrer aussi */
+    .text-right {
+        text-align: center !important;
+        margin-top: 10px;
+        float: none !important;
+    }
+
+    /* 4. On s'assure que les colonnes prennent toute la largeur sans flotter */
+    .col-md-6, .col-sm-6, .col-md-8, .col-md-4 {
+        width: 100% !important;
+        float: none !important;
+        padding: 0;
+    }
+
+    /* 5. Optionnel : On réduit un peu le padding pour que ce soit plus joli sur petit écran */
+    .parallax-overlay {
+        padding: 40px 15px !important;
+    }
+}
+
+/*------------------------------------------------------
+	EFFET ORANGE (Overlay complet)
+--------------------------------------------------------*/
+.thumb-post {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.thumb-post .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0); /* Effet de zoom au survol */
+    transition: all 300ms ease-in-out;
+    z-index: 5;
+}
+
+.thumb-post .overlay .overlay-inner {
+    background: #f17e39; /* Couleur orange */
+    height: 100%;
+    position: relative;
+}
+
+.thumb-post:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* Placement du texte (Bas Gauche) */
+.portfolio-infos {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    text-align: left;
+}
+.portfolio-infos .meta-category {
+    font-size: 13px;
+    color: #fff;
+    font-family: "PT Serif", serif;
+}
+.portfolio-infos .portfolio-title {
+    margin: 5px 0 0 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+.portfolio-infos .portfolio-title a {
+    color: #fff !important;
+}
+
+/* Placement de l'icône flèche (Haut Droite) */
+.portfolio-expand {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 3px;
+    text-align: center;
+    line-height: 40px;
+}
+.portfolio-expand a {
+    color: #31373a;
+    display: block;
+    font-size: 16px;
+}
+
+/* Animation de l'image derrière */
+.thumb-post img {
+    transition: all 0.5s ease;
+}
+.thumb-post:hover img {
+    transform: scale(1.1);
+}
