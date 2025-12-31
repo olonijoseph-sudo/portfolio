@@ -44,7 +44,7 @@ a:hover { color: #31373a; }
 
 /* Ton image de fond avec les lunettes */
 #portfolioId {
-    background-image: url("../images/includes/portfolioId.jpg"); 
+    background-image: url("../images/includes/portfolio.jpg"); 
 }
 
 .parallax {
