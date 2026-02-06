@@ -446,26 +446,30 @@
 
     
 <script>
-		$(window).load(function() {
-			// 1. On récupère l'ID après le # dans l'URL (ex: #projet3)
-			var hash = window.location.hash;
+$(window).on('load', function() {
+    var hash = window.location.hash;
+    $('.projet-cache').hide();
 
-			// 2. On cache d'abord TOUS les blocs au cas où
-			$('.projet-cache').hide();
+    if (hash && $(hash).length > 0) {
+        $(hash).show();
+    } else {
+        $('#projet1').show();
+    }
 
-			// 3. Si un ID est présent dans l'URL et qu'il existe dans la page
-			if (hash && $(hash).length > 0) {
-				$(hash).fadeIn(); // On affiche le projet demandé
-			} else {
-				// Si aucun ID n'est précisé, on affiche le projet 1 par défaut
-				$('#projet4').fadeIn();
-			}
+    // On n'active FlexSlider QUE pour le projet visible
+    // Cela économise beaucoup de ressources
+    $('.projet-cache:visible .flexslider').flexslider({
+        animation: "slide",
+        controlNav: true,
+        directionNav: true,
+        prevText: "",
+        nextText: ""
+    });
 
-			// 4. Important : On rafraîchit les sliders pour qu'ils s'adaptent à la taille de l'écran
-			setTimeout(function(){
-				$(window).trigger('resize');
-			}, 500);
-		});
+    setTimeout(function(){
+        $(window).trigger('resize');
+    }, 300);
+});
 </script>
 
 	
